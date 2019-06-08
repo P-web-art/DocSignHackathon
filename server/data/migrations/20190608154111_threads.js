@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     tbl.text("description");
     tbl.text("location");
 
-    tbl.string("password", 128).notNullable();
     tbl.timestamps(true, true);
 
     tbl
