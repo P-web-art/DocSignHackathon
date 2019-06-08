@@ -1,19 +1,36 @@
 import React, {useState }from 'react';
 import {Form, Card, Button} from 'react-bootstrap'
+import axios from "axios"
+import { withRouter } from "react-router-dom"
 import '../index.css'
 
-function Signup() {
+function Signup(props) {
 
 const [email, handleEmail] = useState('')
 const [password, handlePassword ] = useState('')
+const [name, handleName] = useState('')
 
-const handleSumbit = (e) => {
+const handleSumbit = async (e) => {
   e.preventDefault();
-  console.log(email, password)
+  try {
+    const data = await axios.post("http://localhost:5000/api/users/signup", {name, email, password})
+    console.log(data)
+    console.log(props)
+    props.auth(true)
+    props.history.push("/Events")
+    } catch(err) {
+      console.log(err)
+    }
 }
 
 const handleEmailChange = (e) => {
   handleEmail(
+    e.target.value
+  )
+}
+
+const handleNameChange = (e) => {
+  handleName(
     e.target.value
   )
 }
@@ -30,6 +47,17 @@ const handleEmailChange = (e) => {
       <h1>Sign Up</h1>
       <Card.Body>
       <Form onSubmit = {(e) => handleSumbit(e)}   >
+      <   Form.Group controlId="formGridName">
+          <Form.Label> Name </Form.Label>
+          <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                name= "name"
+                value={name}
+                onChange={ (e) => handleNameChange(e)}
+                required
+              />
+         </Form.Group>
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>
           <Form.Control
@@ -61,4 +89,4 @@ const handleEmailChange = (e) => {
   )
   }
 
-export default Signup
+export default withRouter(Signup)
