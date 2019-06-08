@@ -3,9 +3,12 @@ import {Form, Card, Button} from 'react-bootstrap'
 
 const Events = () => {
 
+  let currentDate = new Date();
+  let postDate = currentDate.getDate();
+
   const [eventName, eventNameHandler] = useState('')
   const [ date, dateHandler] = useState('')
-  const [datePosted] = Date()
+  const [datePosted] = useState(postDate)
   const [description, descriptionHandler] = useState('')
 
   const handleSubmit = (e) => {
