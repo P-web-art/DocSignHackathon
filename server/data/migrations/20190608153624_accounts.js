@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     tbl.string("name", 128).notNullable();
 
     tbl.string("password", 128).notNullable();
+    tbl.timestamps(true, true);
   });
 };
 

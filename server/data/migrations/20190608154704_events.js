@@ -1,6 +1,11 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("volunteers", tbl => {
+  return knex.schema.createTable("events", tbl => {
     tbl.increments();
+
+    tbl.string("title", 128).notNullable();
+    tbl.text("description");
+
+    tbl.timestamps(true, true);
 
     tbl
       .integer("account_id")
@@ -10,18 +15,9 @@ exports.up = function(knex, Promise) {
       .inTable("accounts")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
-
-    tbl
-      .integer("event_id")
-      .unsigned()
-      .notNullable()
-      .references("id")
-      .inTable("events")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.scheme.dropTableIfExists("volunteers");
+  return knex.scheme.dropTableIfExists("events");
 };

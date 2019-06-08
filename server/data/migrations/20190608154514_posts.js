@@ -1,8 +1,8 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("comments", tbl => {
+  return knex.schema.createTable("posts", tbl => {
     tbl.increments();
 
-    tbl.text("comment");
+    tbl.text("post");
 
     tbl.timestamps(true, true);
 
@@ -18,5 +18,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.scheme.dropTableIfExists("comments");
+  return knex.scheme.dropTableIfExists("posts");
 };
