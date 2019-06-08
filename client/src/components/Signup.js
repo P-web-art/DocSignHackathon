@@ -26,11 +26,10 @@ const handleEmailChange = (e) => {
 
   return (
     <div>
-
-      <Form onSubmit = {(e) => handleSumbit(e)}   >
-      <Card style = {{ width: '18rem'}} className ="signUpCard"> 
-      <Card.Body>
+      <Card style = {{ width: '22rem'}} className ="signUpCard"> 
       <h1>Sign Up</h1>
+      <Card.Body>
+      <Form onSubmit = {(e) => handleSumbit(e)}   >
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>
           <Form.Control
@@ -53,10 +52,11 @@ const handleEmailChange = (e) => {
                 required
               />
          </Form.Group>
-         <Button variate = 'primary' type ='submit'> Create Account </Button>
+          <Button variate = 'primary' type ='submit'> Create Account </Button>
+          </Form>   
          </Card.Body>
          </Card>
-      </Form>
+
     </div>
   )
   }

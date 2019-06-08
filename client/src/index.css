@@ -15,4 +15,19 @@ code {
 /* -------------- Sign Up Form Component CSS ----------------*/
 .signUpCard {
   margin: 0 auto;
+  margin-top: 200px;
+}
+
+
+/* -------------- Sign Up Form Component CSS ----------------*/
+.LoginCard {
+  margin:  auto;
+  margin-top: 200px;
+}
+
+/* -------------- Create Event Form Component CSS ----------------*/
+.createEventCard {
+  margin:  auto;
+  margin-top: 200px;
+  padding: 50px;
 }

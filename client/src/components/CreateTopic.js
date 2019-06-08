@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CreateTopic = () => {
+const createTopic = () => {
   return (
     <div>
-      CreateTopic
+      createTopic
     </div>
   )
 }
 
-export default CreateTopic
+export default createTopic
