@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* -------------- Sign Up Form Component CSS ----------------*/
+.signUpCard {
+  margin: 0 auto;
+}
