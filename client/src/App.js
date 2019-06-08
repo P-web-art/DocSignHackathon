@@ -10,7 +10,6 @@ import Signup from "./components/Signup"
 function App() {
   return (
     <div className="App">
-    test
     <Router>
       <Switch>
         <Route exact path="/create-topic" component={CreateTopic}/>
