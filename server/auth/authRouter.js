@@ -33,19 +33,18 @@ router.post("/register", async (req, res) => {
 });
 
 //Login Endpoint
-//* create business login endpoint
-router.get("/login", async (req, res) => {
+//* create login endpoint
+router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    //* grab the business from db if exists
-    const business = await businessesDb.getBusinessByEmail(email);
-    if (business && bcrypt.compareSync(password, business.password)) {
+    //* grab the account info from db if exists
+    const account = await accountDb.getAccountByEmail(email);
+    if (account && bcrypt.compareSync(password, account.password)) {
       //* generate token
-      const token = tokenService.generateToken(business);
+      // const token = tokenService.generateToken(business);
       res.status(200).json({
-        ...business,
-        token,
-        message: `Welcome ${business.companyName}`
+        // token,
+        message: `Welcome ${account.name}`
       });
     } else {
       res
