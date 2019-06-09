@@ -45,7 +45,7 @@ const Events = () => {
                 type="EventName"
                 placeholder="Enter Event Name"
                 name= "EventName"
-                value={eventName}
+                value={eventName} 
                 onChange={ (e) => onChangeEventName(e)}
                 required
               />
@@ -74,4 +74,4 @@ const Events = () => {
   )
 }
 
-export default Events
+export default Events;

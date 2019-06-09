@@ -31,3 +31,94 @@ code {
   margin-top: 200px;
   padding: 50px;
 }
+
+/* -------------- Landing Page ----------------*/
+
+.landingImg {
+  width: 100%;
+  opacity: .6;
+
+}
+
+.landingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  max-width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.textContainer {
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+}
+
+div.landingText {
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  
+
+}
+
+.landingButton {
+  border-radius: 10px;
+  text-decoration: none;
+  
+}
+
+.treeLogo {
+  height: 100%;
+  margin-right: 20px;
+}
+
+.loginButton {
+  margin: 0 5px;
+  background-color: white;
+  color:  #007bff;
+  width: 100px;
+}
+
+.loginButton:hover {
+  background-color: rgb(182, 182, 182);
+  color:  #007bff;
+}
+
+.signupButton {
+  margin: 0 5px;
+  background-color:  rgb(57, 193, 235);
+  color: white;
+  width: 100px;
+}
+ 
+.innertext {
+  margin: 100px 30px;
+  border-radius: 10px;
+}
+
+.navLanding {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav h2 {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+/* -------------- NavBar CSS ----------------*/
+.navbar {
+  background: linear-gradient(to right, #b5ffc6, #28a745);
+}
+
