@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/thread" component={Thread}/>
         <Route exact path="/login" component={() => <Login auth={changeAuth}/>} auth={changeAuth}/>
         <Route exact path="/signup" component={(props)=><Signup auth={changeAuth}  {...props}/> } />
-        <Route exact path="/" component={Landing}/>
+        <Route exact path="/" component={Landing} auth={changeAuth}/>
       </Switch>
     </Router>
     </div>

@@ -35,25 +35,25 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  const account = req.body;
-  if (!account.email) {
-    res.status(404).json({ message: "Missing account email" });
-  } else if (!account.name) {
-    res.status(404).json({ message: "Missing account name" });
-  } else if (!account.password) {
-    res.status(404).json({ message: "Missing password" });
-  } else {
-    try {
-      const addAccount = await accountsDb.addAccount(account);
-      res.status(200).json(addAccount);
-    } catch (err) {
-      res.status(500).json({
-        message: "Error adding account"
-      });
-    }
-  }
-});
+// router.post("/", async (req, res) => {
+//   const account = req.body;
+//   if (!account.email) {
+//     res.status(404).json({ message: "Missing account email" });
+//   } else if (!account.name) {
+//     res.status(404).json({ message: "Missing account name" });
+//   } else if (!account.password) {
+//     res.status(404).json({ message: "Missing password" });
+//   } else {
+//     try {
+//       const addAccount = await accountsDb.addAccount(account);
+//       res.status(200).json(addAccount);
+//     } catch (err) {
+//       res.status(500).json({
+//         message: "Error adding account"
+//       });
+//     }
+//   }
+// });
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
