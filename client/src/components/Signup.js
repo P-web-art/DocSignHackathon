@@ -6,6 +6,7 @@ function Signup() {
 
 const [email, handleEmail] = useState('')
 const [password, handlePassword ] = useState('')
+const [name, handleName ] = useState('')
 
 const handleSumbit = (e) => {
   e.preventDefault();
@@ -14,6 +15,12 @@ const handleSumbit = (e) => {
 
 const handleEmailChange = (e) => {
   handleEmail(
+    e.target.value
+  )
+}
+
+const handleNameChange = (e) => {
+  handleName(
     e.target.value
   )
 }
@@ -38,6 +45,17 @@ const handleEmailChange = (e) => {
                 name= "email"
                 value={email}
                 onChange={ (e) => handleEmailChange(e)}
+                required
+              />
+         </Form.Group>
+          <Form.Group controlId="formGridName">
+          <Form.Label> Name </Form.Label>
+          <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                name= "name"
+                value={name}
+                onChange={ (e) => handleNameChange(e)}
                 required
               />
          </Form.Group>

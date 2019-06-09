@@ -6,6 +6,8 @@ import Events from "./components/Events"
 import Landing from "./components/Landing"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+import ThreadsLists from "./components/ThreadsLists"
+import Thread from "./components/Thread"
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route exact path="/events" component={Events}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/signup" component={Signup}/>
+        <Route exact path="/thread-lists" component={ThreadsLists}/>
+        <Route exact path="/thread" component={Thread}/>
         <Route exact path="/" component={Landing}/>
       </Switch>
     </Router>

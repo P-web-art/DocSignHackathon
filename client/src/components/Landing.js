@@ -9,7 +9,7 @@ const Landing = () => {
     <div>
       <nav className = 'navLanding'>
         <h2> PlaceHolding Inc.</h2>
-        <img src = {logo} alt = 'tree logo' className = 'treeLogo'/>
+        <img src = {logo} alt = 'tree logo' className = 'landingtreeLogo'/>
       </nav>
     <div className = 'landingContainer'>
       <img src = {sunset} className = 'landingImg' alt ='picnic on mountain'/>

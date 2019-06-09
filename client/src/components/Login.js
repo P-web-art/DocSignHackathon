@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import '../index.css'
 import {Form, Card, Button} from 'react-bootstrap'
-
+import logo from '../imgs/treeLogo.png'
 
 const Login = () => {
 
@@ -29,6 +29,7 @@ const Login = () => {
       <Card style = {{ width: '22rem'}} className ="LoginCard"> 
       <h1>Login</h1>
       <Card.Body>
+      <img src = {logo} alt = 'tree logo' className = 'treeLogoSign'/>
       <Form onSubmit = {(e) => handleSumbit(e)}   >
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>
