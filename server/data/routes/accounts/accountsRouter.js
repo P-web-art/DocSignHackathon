@@ -45,8 +45,8 @@ router.post("/", async (req, res) => {
     res.status(404).json({ message: "Missing password" });
   } else {
     try {
-      const addingAccount = await accountsDb.addingAccount(account);
-      res.status(200).json(addingAccount);
+      const addAccount = await accountsDb.addAccount(account);
+      res.status(200).json(addAccount);
     } catch (err) {
       res.status(500).json({
         message: "Error adding account"
