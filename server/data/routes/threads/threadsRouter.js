@@ -81,7 +81,7 @@ router.delete("/:id", async (req, res) => {
   } else {
     try {
       const deletedThread = await threadsDb.deleteThread(id);
-      res.status(204).json(deletedthread);
+      res.status(204).json(deletedThread);
     } catch (err) {
       res.status(500).json({
         message: "Error deleting thread"
