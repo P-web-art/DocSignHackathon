@@ -1,12 +1,16 @@
 const db = require("../../dbConfig.js");
 
 const getEvents = () => {
-  return db("events");
+  return db("events as e")
+    .join("accounts as a", "a.id", "=", "e.account_id")
+    .select("e.*", "a.name");
 };
 
 const getEventById = id => {
-  return db("events")
-    .where("id", id) //* returns Event within array
+  return db("events as e")
+    .join("accounts as a", "a.id", "=", "e.account_id")
+    .select("e.*", "a.name")
+    .where("e.id", id) //* returns Post within array
     .first();
 };
 

@@ -5,6 +5,9 @@ exports.up = function(knex, Promise) {
     tbl.string("title", 128).notNullable();
     tbl.text("description");
 
+    tbl.date("eventDate").notNullable();
+    tbl.time("eventTime").notNullable();
+
     tbl.timestamps(true, true);
 
     tbl
