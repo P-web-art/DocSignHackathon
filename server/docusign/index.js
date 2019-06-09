@@ -1,4 +1,4 @@
-const accountsDb = require("../data/routes/accounts/accountsDb.js");
+// const accountsDb = require("../data/routes/accounts/accountsDb.js");
 /**
  * This is a quick start example of embedding the signing ceremony within your website.
  * Language: Node.js
