@@ -22,7 +22,7 @@ server.use("/api/events", eventsRouter);
 server.use("/api/volunteers", volunteersRouter);
 
 server.get("/", (req, res) => {
-  res.status(200).json({ hello: "Hello World!" });
+  res.status(200).json({ hello: "Hello World! Hi Hi" });
 });
 
 module.exports = server;
