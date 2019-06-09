@@ -3,7 +3,7 @@ import {Form, Card, Button} from 'react-bootstrap'
 import NavBar from './NavBar'
 import CarouselThreads from './Carousel'
 import '../index.css'
-
+import axios from 'axios'
 
 const fake = [
     {name: "test1", title: "thread 1", id: 1},

@@ -14,7 +14,7 @@ const Events = (props) => {
   const [description, descriptionHandler] = useState('')
 
   const handleSubmit = (e) => {
-    axios.post 
+    // axios.post 
     e.preventDefault()
     console.log( ` Your event is ${eventName} on ${date} posted on ${datePosted} and is about ${description}`)
   }
