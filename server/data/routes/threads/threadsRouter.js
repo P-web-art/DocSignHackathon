@@ -3,6 +3,7 @@ const express = require("express");
 
 //Import helper functions
 const threadsDb = require("./threadsDb.js");
+const postsDb = require("../posts/postsDb.js");
 
 //Create Router
 const router = express.Router();
@@ -32,6 +33,20 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({
       message: "Error retrieving thread"
     });
+  }
+});
+
+//List posts with specified thread id
+server.get("/api/threads/:id/posts", async (req, res) => {
+  try {
+    //Joins the two tables together, and uses the thread_id foreign key to match id of threads and returns data
+    const posts = await postsDb("posts as p")
+      .join("threads as t", "t.id", "p.thread_id")
+      .select("p.*")
+      .where("p.thread_id", req.params.id);
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
