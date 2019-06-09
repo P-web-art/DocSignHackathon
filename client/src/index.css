@@ -1,3 +1,10 @@
+html {
+  max-width: 100%;
+  height: 100%;
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,8 +12,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
+#root, .App {
+  height: 100%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -20,14 +31,18 @@ code {
 
 .treeLogoSign {
   width: 100%;
-  margin: 0 auto;
+  margin: 18px auto;
+
 }
 
 
-/* -------------- Sign Up Form Component CSS ----------------*/
+/* -------------- Login Form Component CSS ----------------*/
 .LoginCard {
   margin:  auto;
   margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* -------------- Create Event Form Component CSS ----------------*/
@@ -122,11 +137,27 @@ nav h2 {
   margin-left: 20px;
 }
 
+/* --------------  Threads  List CSS ----------------*/
+.ThreadsListCard {
+  padding: 20px; 
+  width: 100%;
+}
+
+.threadBlock{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+
+
 /* -------------- Individual Threads CSS ----------------*/
 .Thread {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  
+  background-color: green;
+  height: 100%;
+  padding-top: 100px; 
 }
 .individComments {
   display: flex;
@@ -168,8 +199,62 @@ nav h2 {
   justify-content: flex-start;
   color: gray;
 }
+
+.threadButton {
+ margin: 0 auto;
+ width: 250px;
+
+}
+
+.threadbuttonContainer {
+  margin: 20px 0;
+}
+
+.threadBodyContainer {
+  width: 80%;
+  border: solid .8px black;
+  margin: 0 auto;
+}
+
+.threadContainer {
+  width: 90%;
+  margin: 50px auto;
+  background-color: rgb(236, 236, 236); 
+}
+
 /* -------------- NavBar CSS ----------------*/
 .navbar {
-  background: linear-gradient(to right, #b5ffc6, #28a745);
+  background:  #dcffe4;
+}
+
+.navTreeLogo {
+  height: 4em;
+  margin-right: 10px;
+}
+/* -------------- Carousel Component CSS ----------------*/
+.threadsCrouselContainer {
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  bottom: 22px; 
+}
+div.carousel-caption {
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.title {
+  position: absolute;
+  z-index: 1;  
+  margin: 0 auto;
+  width: 100%;
+  color: white;
+  margin-top: 40px;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import NavBar from './NavBar'
 
 const test = {name: "Billy joe", title: "Camping at Area 51?", id: 1, threads: [{name: "Bob", post: "This looks fun!"}, {name: "Billy", post: "I like turtles"}, {name: "Joe", post: "jello shots"}]}
 
@@ -8,8 +9,9 @@ const Thread = () => {
 
 
     return (
-        <div className = 'Thread'> 
-        <Card> 
+        <> 
+        <NavBar />
+        <Card className = 'threadContainer'> 
         <div className = 'PostTitle'> 
             <div> 
              <h3>{test.title} </h3>
@@ -31,10 +33,13 @@ const Thread = () => {
                 </div>   
                 </Card>
              )
-         } )}
-        </Card>
-        <Link to = '/events'> <button> Create Event </button> </Link>
+            })
+         }
+         <div className = 'threadbuttonContainer'>
+        <Button className ='threadButton' href = '/events'> Let's do something 'bout it!  </Button>
         </div>
+        </Card>
+       </>
     )
 }
 
