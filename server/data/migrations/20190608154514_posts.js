@@ -14,14 +14,6 @@ exports.up = function(knex, Promise) {
       .inTable("threads")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
-
-    tbl
-      .integer("account_id")
-      .unsigned()
-      .references("id")
-      .inTable("accounts")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
   });
 };
 
