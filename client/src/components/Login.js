@@ -3,7 +3,7 @@ import '../index.css'
 import axios from "axios"
 import { withRouter } from "react-router-dom"
 import {Form, Card, Button} from 'react-bootstrap'
-
+import logo from '../imgs/treeLogo.png'
 
 const Login = props => {
 
@@ -39,6 +39,7 @@ const Login = props => {
       <Card style = {{ width: '22rem'}} className ="LoginCard"> 
       <h1>Login</h1>
       <Card.Body>
+      <img src = {logo} alt = 'tree logo' className = 'treeLogoSign'/>
       <Form onSubmit = {(e) => handleSumbit(e)}   >
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>
