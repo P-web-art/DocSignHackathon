@@ -5,6 +5,9 @@ exports.up = function(knex, Promise) {
     tbl.string("title", 128).notNullable();
     tbl.text("description");
 
+    tbl.date("eventDate").notNullable();
+    tbl.time("eventTime").notNullable();
+
     tbl.timestamps(true, true);
 
     tbl
@@ -13,6 +16,15 @@ exports.up = function(knex, Promise) {
       .notNullable()
       .references("id")
       .inTable("accounts")
+      .onDelete("CASCADE")
+      .onUpdate("CASCADE");
+
+    tbl
+      .integer("thread_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("threads")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
   });
