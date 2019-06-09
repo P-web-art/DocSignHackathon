@@ -1,16 +1,25 @@
 import React, {useState }from 'react';
 import {Form, Card, Button} from 'react-bootstrap'
 import '../index.css'
+import logo from '../imgs/treeLogo.png'
+import axios from 'axios'
 
-function Signup() {
+const Signup = props => {
 
 const [email, handleEmail] = useState('')
 const [password, handlePassword ] = useState('')
 const [name, handleName ] = useState('')
 
-const handleSumbit = (e) => {
+
+const handleSumbit = async (e) => {
   e.preventDefault();
-  console.log(email, password)
+  try{
+    let signUp = await axios.post('http://localhost:5000/api/users/signup', {name, email, password})
+    console.log(signUp)
+    console.log('my props', props)
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 const handleEmailChange = (e) => {
@@ -36,6 +45,7 @@ const handleNameChange = (e) => {
       <Card style = {{ width: '22rem'}} className ="signUpCard"> 
       <h1>Sign Up</h1>
       <Card.Body>
+      <img src = {logo} alt = 'tree logo' className = 'treeLogoSign'/>
       <Form onSubmit = {(e) => handleSumbit(e)}   >
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>

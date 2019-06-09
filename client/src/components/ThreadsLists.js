@@ -1,6 +1,8 @@
 import React from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
-
+import NavBar from './NavBar'
+import CarouselThreads from './Carousel'
+import '../index.css'
 
 const fake = [
     {name: "test1", title: "thread 1", id: 1},
@@ -17,19 +19,35 @@ const ThreadsLists = (props) => {
     }
 
     return (
-        <div> 
-        <Card> 
-        <h1> Threads</h1>
+        <> 
+        <NavBar />
+        <div className = 'title'> 
+        <h1> Forest Happenings</h1>
+        </div>
+        <CarouselThreads />
+ 
+
+
         {fake.map((thread, i) => {
             return ( 
-            <div key = {i}>
+                <Card className = 'ThreadsListCard'> 
+            <div key = {i} className = 'threadBlock'>
+                <div className = 'threadsName'>
                 <h1>{ thread.name}</h1>
-                <p>{thread.title }</p>
+                </div>
+                <div className = 'threadsTitle'> 
+                <h4>{thread.title }</h4>
+                </div>
+                <div className = 'threadsButton'> 
                 <button onClick = { () => handleClick(thread.id)}> Go to Thread   </button>
-            </div>)}
+                </div>
+            </div>
+            </Card>
+            )}
+           
         )}
-        </Card>
-        </div>
+
+        </>
     )
 }
 
