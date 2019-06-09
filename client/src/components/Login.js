@@ -17,7 +17,7 @@ const Login = props => {
     console.log(data)
     console.log("my props ",props)
     props.auth(true)
-    props.history.push("/Events")
+    props.history.push("/events")
     } catch(err) {
       console.log(err)
     }

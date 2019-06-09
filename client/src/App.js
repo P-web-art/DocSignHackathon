@@ -14,11 +14,11 @@ function App() {
     <div className="App">
     <Router>
       <Switch>
-        <Route exact path="/create-topic" component={CreateTopic}/>
-        <Route exact path="/events" component={Events}/>
+        <Route exact path="/create-topic" component={(props) => <CreateTopic auth={isAuth} {...props} auth={true}/>} />
+        <Route exact path="/events" component={Events} />
         <Route exact path="/login" component={() => <Login auth={changeAuth}/>} auth={changeAuth}/>
         <Route exact path="/signup" component={(props)=><Signup auth={changeAuth}  {...props}/> } />
-        <Route exact path="/" component={Landing}/>
+        <Route exact path="/" component={Landing} auth={changeAuth}/>
       </Switch>
     </Router>
     </div>

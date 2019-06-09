@@ -13,7 +13,7 @@ const [name, handleName] = useState('')
 const handleSumbit = async (e) => {
   e.preventDefault();
   try {
-    const data = await axios.post("http://localhost:5000/api/users/signup", {name, email, password})
+    const data = await axios.post("http://localhost:5000/api/accounts", {name, email, password})
     console.log(data)
     console.log(props)
     props.auth(true)
