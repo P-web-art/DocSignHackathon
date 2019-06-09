@@ -11,10 +11,12 @@ const getAccountById = id => {
 };
 
 const getAccountByEmail = email => {
-  return db("accounts")
-    .returning("*")
-    .where("email", email) //* returns Account within array
-    .first();
+  return (
+    db("accounts")
+      // .select("accounts.")
+      .where("email", email) //* returns Account within array
+      .first()
+  );
 };
 
 const addAccount = account => {

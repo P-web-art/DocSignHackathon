@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import CarouselThreads from './Carousel'
 import '../index.css'
 
+
 const fake = [
     {name: "test1", title: "thread 1", id: 1},
     {name: "test2", title: "thread 2", id: 2},
@@ -25,8 +26,6 @@ const ThreadsLists = (props) => {
         <h1> Forest Happenings</h1>
         </div>
         <CarouselThreads />
- 
-
 
         {fake.map((thread, i) => {
             return ( 
