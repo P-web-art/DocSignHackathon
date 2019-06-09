@@ -1,6 +1,11 @@
 //Import express
 const express = require("express");
 
+const knex = require("knex");
+const knexConfig = require("../../../knexfile.js");
+
+const db = knex(knexConfig.development);
+
 //Import helper functions
 const threadsDb = require("./threadsDb.js");
 const postsDb = require("../posts/postsDb.js");
@@ -44,11 +49,11 @@ router.get("/:id", async (req, res) => {
 });
 
 //List posts with specified thread id
-router.get("/api/threads/:id/posts", async (req, res) => {
+router.get("/:id/posts", async (req, res) => {
   try {
     //Joins the two tables together, and uses the thread_id foreign key to match id of threads and returns data
-    const posts = await postsDb("posts as p")
-      .join("threads as t", "t.id", "p.thread_id")
+    const posts = await db("posts as p")
+      .join("threads as t", "t.id", "=", "p.thread_id")
       .select("p.*")
       .where("p.thread_id", req.params.id);
     res.status(200).json(posts);
