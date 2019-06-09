@@ -27,6 +27,13 @@ const updateThread = (id, thread) => {
     });
 };
 
+const getByIdComplete = id => {
+  return db("threads")
+    .join("accounts", "accounts.id", "=", "threads.account_id")
+    .select("threads.*")
+    .where("id", id);
+};
+
 const deleteThread = id => {
   return db("threads")
     .where("id", id)
@@ -38,5 +45,6 @@ module.exports = {
   getThreadById,
   addThread,
   deleteThread,
-  updateThread
+  updateThread,
+  getByIdComplete
 };

@@ -4,6 +4,7 @@ const express = require("express");
 //Import helper functions
 const threadsDb = require("./threadsDb.js");
 const postsDb = require("../posts/postsDb.js");
+const accountsDb = require("../accounts/accountsDb.js");
 
 //Create Router
 const router = express.Router();
@@ -11,7 +12,7 @@ const router = express.Router();
 //Endpoints
 router.get("/", async (req, res) => {
   try {
-    const threads = await threadsDb.getthreads();
+    const threads = await threadsDb.getThreads();
     res.status(200).json(threads);
   } catch (err) {
     res
@@ -23,9 +24,15 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const thread = await threadsDb.get(id);
+    //Grabs thread
+    const thread = await threadsDb.getThreadById(id);
+    //Grabs account_id from thread object
+    let accountId = thread.account_id;
+    //Grabs account object using accountId
+    const accountName = await accountsDb.getAccountById(accountId);
     if (thread) {
-      res.status(200).json(thread);
+      //returns thread with accountName
+      res.status(200).json({ ...thread, name: accountName.name });
     } else {
       res.status(404).json({ message: "Invalid ID" });
     }
@@ -37,7 +44,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //List posts with specified thread id
-server.get("/api/threads/:id/posts", async (req, res) => {
+router.get("/api/threads/:id/posts", async (req, res) => {
   try {
     //Joins the two tables together, and uses the thread_id foreign key to match id of threads and returns data
     const posts = await postsDb("posts as p")
