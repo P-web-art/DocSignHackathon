@@ -1,16 +1,26 @@
 import React, {useState} from 'react'
 import '../index.css'
+import axios from "axios"
+import { withRouter } from "react-router-dom"
 import {Form, Card, Button} from 'react-bootstrap'
 import logo from '../imgs/treeLogo.png'
 
-const Login = () => {
+const Login = props => {
 
   const [email, handleEmail] = useState('')
   const [password, handlePassword ] = useState('')
   
-  const handleSumbit = (e) => {
+  const handleSumbit = async (e) => {
     e.preventDefault();
-    console.log(email, password)
+    try {
+    const data = await axios.post("http://localhost:5000/api/users/login", {email, password})
+    console.log(data)
+    console.log("my props ",props)
+    props.auth(true)
+    props.history.push("/Events")
+    } catch(err) {
+      console.log(err)
+    }
   }
   
   const handleEmailChange = (e) => {
@@ -61,4 +71,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default withRouter(Login)

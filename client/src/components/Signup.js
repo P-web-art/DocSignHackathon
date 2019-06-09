@@ -59,6 +59,7 @@ const handleNameChange = (e) => {
                 required
               />
          </Form.Group>
+         
          <Form.Group controlId="formGridPassword">
           <Form.Label> Password </Form.Label>
           <Form.Control

@@ -1,10 +1,28 @@
-import React from 'react'
 import sunset from '../imgs/sunset.jpg'
 import '../index.css'
 import {Button} from 'react-bootstrap'
 import logo from '../imgs/treeLogo.png'
+import React, { useEffect, useState} from 'react';
+import axios from "axios";
 
 const Landing = () => {
+
+  const [test, changetest] = useState("fdsfs")
+
+  useEffect(() => {
+   async function test() {
+      try {
+        const response = await axios.get("http://localhost:5000/api/test")
+        changetest(response.data.test)
+        } catch(err) {
+          console.log(err)
+        }
+        
+      }
+      test()
+    }, [])
+    
+
   return (
     <div>
       <nav className = 'navLanding'>
@@ -23,12 +41,12 @@ const Landing = () => {
         </div>
         <Button  className = 'loginButton'  href = '/login'>Login</Button>
         <Button  className = 'signupButton' href = '/signup'>Sign Up</Button>   
+        <p>{test}</p>
         </div>
         </div>
       </div>
     </div>
-
-
+      
     </div>
   )
 }
