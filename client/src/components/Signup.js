@@ -1,19 +1,20 @@
 import React, {useState }from 'react';
 import {Form, Card, Button} from 'react-bootstrap'
-import axios from "axios"
-import { withRouter } from "react-router-dom"
 import '../index.css'
+import logo from '../imgs/treeLogo.png'
+import axios from 'axios'
 
-function Signup(props) {
+const Signup = props => {
 
 const [email, handleEmail] = useState('')
 const [password, handlePassword ] = useState('')
-const [name, handleName] = useState('')
+const [name, handleName ] = useState('')
+
 
 const handleSumbit = async (e) => {
   e.preventDefault();
   try {
-    const data = await axios.post("http://localhost:5000/api/users/signup", {name, email, password})
+    const data = await axios.post("http://localhost:5000/api/accounts", {name, email, password})
     console.log(data)
     console.log(props)
     props.auth(true)
@@ -46,18 +47,8 @@ const handleNameChange = (e) => {
       <Card style = {{ width: '22rem'}} className ="signUpCard"> 
       <h1>Sign Up</h1>
       <Card.Body>
+      <img src = {logo} alt = 'tree logo' className = 'treeLogoSign'/>
       <Form onSubmit = {(e) => handleSumbit(e)}   >
-      <   Form.Group controlId="formGridName">
-          <Form.Label> Name </Form.Label>
-          <Form.Control
-                type="text"
-                placeholder="Enter Name"
-                name= "name"
-                value={name}
-                onChange={ (e) => handleNameChange(e)}
-                required
-              />
-         </Form.Group>
           <Form.Group controlId="formGridName">
           <Form.Label> Email </Form.Label>
           <Form.Control
@@ -69,6 +60,18 @@ const handleNameChange = (e) => {
                 required
               />
          </Form.Group>
+          <Form.Group controlId="formGridName">
+          <Form.Label> Name </Form.Label>
+          <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                name= "name"
+                value={name}
+                onChange={ (e) => handleNameChange(e)}
+                required
+              />
+         </Form.Group>
+         
          <Form.Group controlId="formGridPassword">
           <Form.Label> Password </Form.Label>
           <Form.Control
@@ -89,4 +92,4 @@ const handleNameChange = (e) => {
   )
   }
 
-export default withRouter(Signup)
+export default Signup

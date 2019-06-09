@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
+import {Map, GoogleApiWrapper} from 'google-maps-react'
 
-const Events = () => {
+
+const Events = (props) => {
 
   let currentDate = new Date();
   let postDate = currentDate.getDate();
@@ -33,10 +35,15 @@ const Events = () => {
       e.target.value
     )
   }
+  
+  
 
   return (
     <div>
+    
     <Card style = {{ width: '30rem'}} className = 'createEventCard'> 
+
+
       <h1>Create Event</h1>
       <Form onSubmit={(e) => handleSubmit(e)}> 
       <Form.Group controlId="formGridName">
@@ -45,7 +52,7 @@ const Events = () => {
                 type="EventName"
                 placeholder="Enter Event Name"
                 name= "EventName"
-                value={eventName}
+                value={eventName} 
                 onChange={ (e) => onChangeEventName(e)}
                 required
               />
@@ -74,4 +81,6 @@ const Events = () => {
   )
 }
 
-export default Events
+export default GoogleApiWrapper( {
+  apiKey:'AIzaSyBlEoNanUayf0fOkwj0qeRs-q6woFZtAoI'
+}) (Events);
