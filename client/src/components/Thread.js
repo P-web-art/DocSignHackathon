@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import NavBar from './NavBar'
+import GoogleMapsContainer from './Google-Maps.js'
 
 const test = {name: "Billy joe", title: "Camping at Area 51?", id: 1, threads: [{name: "Bob", post: "This looks fun!"}, {name: "Billy", post: "I like turtles"}, {name: "Joe", post: "jello shots"}]}
 
@@ -12,6 +13,7 @@ const Thread = () => {
         <> 
         <NavBar />
         <Card className = 'threadContainer'> 
+        {/* <GoogleMapsContainer /> */}
         <div className = 'PostTitle'> 
             <div> 
              <h3>{test.title} </h3>
