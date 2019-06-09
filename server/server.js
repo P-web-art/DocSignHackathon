@@ -14,7 +14,7 @@ server.use("/api/users", users);
 server.use("/api/accounts", accountsRouter);
 
 server.get("/", (req, res) => {
-  res.status(200).json({ hello: "Hello World!" });
+  res.status(200).json({ hello: "Hello World! Hi Hi" });
 });
 
 module.exports = server;
