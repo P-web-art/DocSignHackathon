@@ -18,8 +18,9 @@ class SimpleMap extends Component {
 
   }
 
-   componentDidMount() {
-     this.getMyLocation()
+   async componentDidMount() {
+     await this.getMyLocation()
+     await GoogleMapReact
      console.log(this.state.center)
 }
 

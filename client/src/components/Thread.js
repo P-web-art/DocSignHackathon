@@ -13,7 +13,7 @@ const Thread = () => {
         <> 
         <NavBar />
         <Card className = 'threadContainer'> 
-        {/* <GoogleMapsContainer /> */}
+        <GoogleMapsContainer />
         <div className = 'PostTitle'> 
             <div> 
              <h3>{test.title} </h3>
